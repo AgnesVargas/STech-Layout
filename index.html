@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head>
+		<title>Aula 04</title>
+		<meta charset="utf-8">
+		<meta name="autor" content="Agnes Vitoria">
+		<meta name="viewport" content="width-device-width, initial-scale=1.0">
+		<!-- tags meta para motores de busca - SEO -->
+		<meta name="keywords" content="html, css">
+		<meta name="description" content="Layout HTML">
+		<!-- estilo CSS -->
+		<link rel="stylesheet" href="estilo.css">
+	</head>
+	<body>
+	   <header>
+	   <h1>Layout HTML</h1>
+	   </header>
+	    <nav>
+	        <ul>
+		        <li>
+		            <a href="#">Home</a>
+		        </li>
+		        <li>
+		            <a href="#">Conteúdo</a>
+		        </li>
+		        <li>
+		            <a href="#">Galeria</a>
+		        </li>
+		        <li>
+		            <a href="#">Contato</a>
+		       </li>
+		    </ul>
+	    </nav>
+		<div class = "container">
+		    <div class="esquerda">
+			    <h2>Sobre</h2>
+			    <P>
+			    Mussum Ipsum, cacildsc vidis litro abertis. Quem num gosta di mé, boa gentis num é.Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.Quem manda na minha terra sou euzis!Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl.
+			    </P>
+			    <h2>Histórico</h2>
+			    <p>Mussum Ipsum, cacildsc vidis litro abertis.</p>
+			    <div class= "imgFake" style="height:200px;">Imagem 1</div>
+				<div class= "imgFake" style="height:200px;">Imagem 2</div>
+				<div class= "imgFake" style="height:200px;">Imagem 3</div>
+			</div>
+			<div class="conteudo">
+			    <h2>Conteúdo da Página</h2>
+				<H5>
+				    <script>
+					    <!-- js para pegar a data atual -->
+						date = new Date().toLocaleDateString();
+						document.write(date);
+					</script>
+				</H5>
+				<div class="imgFake" style="height:200px">Imagem 4</div>
+				<p>Mussum upsum ...</p>
+				<P>
+				Mussum Ipsum, cacildsc vidis litro abertis. Quem num gosta di mé, boa gentis num é.Em pé sem cair, deitado sem dormir, sentado sem cochilar e fazendo pose.Quem manda na minha terra sou euzis!Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl.
+			    </P>
+				<picture>
+				    <source media="(min-width:600px)" 
+					    srcset="./imagens/imgMedia.jpg" 
+						width="600px"/>
+					<source media="(min-width:465px)" 
+					    srcset="./imagens/imgPequena.jpg"/>
+					<img src="./imagens/caminho.jpg" alt="Caminho entre árvores" style="max-width:100%; height: auto;"/>
+				</picture>
+			</div>
+		</div>
+	</body>
+	
+</html>
