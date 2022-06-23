@@ -105,10 +105,10 @@ input{
 }
 
 /*Específico para alguns inputs*/
-input[type=text], input[type=email], input[type=tel], select, textarea{
+input[type=text], input[type=email], input[type=tel], input[type=password], select, textarea{
 	width: 100%;
 	padding: 12px;
-	boreder: 1px solid #ccc;
+	border: 1px solid #ccc;
 	border-radius: 5px;
 	resize: vertical;
 }
