@@ -86,7 +86,7 @@
                         <label>Telefone:</label>
                     </div>
                     <div class="input">
-                        <input type="text" id="telefone" name="telefone" />
+                        <input type="text" id="telefone" name="telefone" oninput="mascaraTelefone(this)"/>
                     </div>
                 </div>
                 <div class="row">
@@ -99,18 +99,29 @@
                 </div>
                 <div class="row">
                     <div class="label">
+                        <label>Tipo Pessoa</label>
+                    </div>
+                    <div class="input">
+                        <input type="radio" id="tpCPF" name="tpPessoa"
+                            onclick="document.getElementById('divCNPJ').style.visibility='hidden';document.getElementById('divCPF').style.visibility='visible'" />CPF
+                        <input type="radio" id="tpCNPJ" name="tpPessoa"
+                            onclick="document.getElementById('divCNPJ').style.visibility='visible';document.getElementById('divCPF').style.visibility='hidden'" />CNPJ
+                    </div>
+                </div>
+                <div class="row" id="divCPF" style="visibility:hidden">
+                    <div class="label">
                         <label>CPF:</label>
                     </div>
                     <div class="input">
-                        <input type="text" id="cpf" name="cpf" />
+                        <input type="text" id="cpf" name="cpf" oninput="mascaraCPF(this)" />
                     </div>
                 </div>
-                <div class="row">
+                <div class="row" id="divCNPJ" style="visibility:hidden">
                     <div class="label">
                         <label>CNPJ:</label>
                     </div>
                     <div class="input">
-                        <input type="text" id="cnpj" name="cnpj" />
+                        <input type="text" id="cnpj" name="cnpj" oninput="mascaraCNPJ(this)" />
                     </div>
                 </div>
                 <div class="row">
@@ -123,17 +134,17 @@
                 </div>
                 <div class="row">
                     <div class="label">
-                        <label>Foto de Perfil:</label>
+                        <label>Foto de perfil:</label>
                     </div>
                     <div class="input">
                         <input type="file" id="imgUser" name="imgUser" />
                     </div>
                 </div>
                 <div id="imgExibir">
-                    <img id="preview" src="" />
+                    <img id="preview" src="">
                 </div>
                 <div class="row">
-                    <input type="reset" value="Limpar">
+                    <input type="reset" value="Limpar" />
                     <input type="submit" value="Enviar" onclick="return validar()" />
                 </div>
             </form>

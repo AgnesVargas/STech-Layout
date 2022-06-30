@@ -28,19 +28,19 @@ function validar() {
         formUser.endereco.focus();
         return false;
     }
-    if (cpf == "" && cnpj == "")  {
+    if (cpf == "" && cnpj == "") {
         alert("Escolha entre CPF ou CNPJ");
         formUser.cpf.focus();
         return false;
     }
     else if (value == cpf) {
-        (cpf == "" || cpf.length < 14) 
+        (cpf == "" || cpf.length < 14)
         alert("CPF inválido!");
         formUser.cpf.focus();
         return false;
     }
     else if (value == cnpj) {
-        (cnpj == "" || cnpj.length <= 18) 
+        (cnpj == "" || cnpj.length <= 18)
         alert("CNPJ incorreto!");
         formUser.cnpj.focus();
         return false;
@@ -50,4 +50,38 @@ function validar() {
         formUser.senha.focus();
         return false;
     }
+}
+function mascaraCPF(i){
+    const v = i.value;
+    if(isNaN(v[v.length -1])){
+        i.value = v.substring (0,v.length -1);
+        return;
+    }
+    i.setAttribute ("maxlength","14");
+    if(v.length == 3 || v.length == 7) i.value +=".";
+    if(v.length == 11) i.value += "-";
+}
+function mascaraCNPJ(i){
+    const v = i.value;
+    if(isNaN(v[v.length -1])){
+        i.value = v.substring (0,v.length -1);
+        return;
+    }
+    i.setAttribute ("maxlength","18");
+    if(v.length == 2 || v.length == 6) i.value +=".";
+    if(v.length == 10) i.value += "/";
+    if(v.length == 15) i.value += "-";
+
+}
+function mascaraTelefone(i){
+    const v = i.value;
+    if(isNaN(v[v.length -1])){
+        i.value = v.substring (0,v.length -1);
+        return;
+    }
+    i.setAttribute ("maxlength","14");
+    if(v.length == 1) i.value ="(" + i.value;
+    if(v.length == 3) i.value += ")";
+    if(v.length == 9) i.value += "-";
+
 }
