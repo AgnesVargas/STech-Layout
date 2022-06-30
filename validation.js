@@ -5,6 +5,7 @@ function validar() {
     var telefone = formUser.telefone.value;
     var endereco = formUser.endereco.value;
     var senha = formUser.senha.value;
+    var confsenha = formUser.confsenha.value;
     var cpf = formUser.cpf.value;
     var cnpj = formUser.cnpj.value;
 
@@ -18,6 +19,11 @@ function validar() {
         formUser.email.focus();
         return false;
     }
+    if (confemail != email) {
+        alert("E-mail não corresponde.")
+        formUser.email.focus();
+        return false;
+    }
     if (telefone == "" || telefone.length <= 10) {
         alert("Informe telefone com DDD!");
         formUser.telefone.focus();
@@ -26,6 +32,16 @@ function validar() {
     if (endereco == "" || endereco.length <= 10) {
         alert("Informe endereço completo!");
         formUser.endereco.focus();
+        return false;
+    }
+    if (senha == "" || senha.length < 5) {
+        alert("Informe senha minimo 5 digitos!");
+        formUser.senha.focus();
+        return false;
+    }
+    if (confsenha != senha) {
+        alert("Senha não confere");
+        formUser.confsenha.focus();
         return false;
     }
     if (cpf == "" && cnpj == "") {
@@ -40,48 +56,51 @@ function validar() {
         return false;
     }
     else if (value == cnpj) {
-        (cnpj == "" || cnpj.length <= 18)
+        (cnpj == "" || cnpj <= 18)
         alert("CNPJ incorreto!");
         formUser.cnpj.focus();
         return false;
     }
-    if (senha == "" || senha.length <= 10) {
-        alert("Informe senha minimo 6 digitos!");
-        formUser.senha.focus();
-        return false;
-    }
 }
-function mascaraCPF(i){
+function mascaraCPF(i) {
     const v = i.value;
-    if(isNaN(v[v.length -1])){
-        i.value = v.substring (0,v.length -1);
+    if (isNaN(v[v.length - 1])) {
+        i.value = v.substring(0, v.length - 1);
         return;
     }
-    i.setAttribute ("maxlength","14");
-    if(v.length == 3 || v.length == 7) i.value +=".";
-    if(v.length == 11) i.value += "-";
+    i.setAttribute("maxlength", "14");
+    if (v.length == 3 || v.length == 7) i.value += ".";
+    if (v.length == 11) i.value += "-";
 }
-function mascaraCNPJ(i){
+function mascaraCNPJ(i) {
     const v = i.value;
-    if(isNaN(v[v.length -1])){
-        i.value = v.substring (0,v.length -1);
+    if (isNaN(v[v.length - 1])) {
+        i.value = v.substring(0, v.length - 1);
         return;
     }
-    i.setAttribute ("maxlength","18");
-    if(v.length == 2 || v.length == 6) i.value +=".";
-    if(v.length == 10) i.value += "/";
-    if(v.length == 15) i.value += "-";
+    i.setAttribute("maxlength", "18");
+    if (v.length == 2 || v.length == 6) i.value += ".";
+    if (v.length == 10) i.value += "/";
+    if (v.length == 15) i.value += "-";
+}
+function mascaraTel(i) {
+    const v = i.value;
+    if (isNaN(v[v.length - 1])) {
+        i.value = v.substring(0, v.length - 1);
+        return;
+    }
+    i.setAttribute("maxlength", "14");
+    if (v.length == 1) i.value = "(" + i.value + "";
+    if (v.length == 3) i.value += ")";
+    if (v.length == 9) i.value += "-";
+}
 
-}
-function mascaraTelefone(i){
-    const v = i.value;
-    if(isNaN(v[v.length -1])){
-        i.value = v.substring (0,v.length -1);
-        return;
+function lerImg() {
+    if(this.files && this.files[0]) {
+        var file = new FileReader();
+        file.onload = function(e) {
+            document.getElementById("preview") .src = e.target.result;
+        }
+        file.readAsDataURL(this.files[0]);
     }
-    i.setAttribute ("maxlength","14");
-    if(v.length == 1) i.value ="(" + i.value;
-    if(v.length == 3) i.value += ")";
-    if(v.length == 9) i.value += "-";
-
 }
